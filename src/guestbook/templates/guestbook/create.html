@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="row gy-5 justify-content-center">
+        <div class="col-12 col-sm-8">
+            <form action="{% url 'add_record' %}" method="POST">
+                {% include 'guestbook/partial/form.html' with button_text='Create' %}
+            </form>
+        </div>
+    </div>
+{% endblock %}
