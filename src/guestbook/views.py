@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import GuestBook
 from .forms import RecordForm
@@ -32,5 +32,31 @@ def add_record(request):
                 email=form.cleaned_data.get('email'),
                 description=form.cleaned_data.get('description')
             )
+
+            return redirect('home')
+
+
+def edit_record(request, pk):
+    record = get_object_or_404(GuestBook, pk=pk)
+    match request.method:
+        case 'GET':
+            form = RecordForm(instance=record)
+            return render(request, 'guestbook/edit.html', context={
+                'pk': record.pk,
+                'form': form,
+            })
+
+        case 'POST':
+            form = RecordForm(request.POST)
+            if not form.is_valid():
+                return render(request, 'guestbook/edit.html', context={
+                    'form': form,
+                })
+
+            # SUCCESS
+            record.author = form.cleaned_data.get('author')
+            record.email = form.cleaned_data.get('email')
+            record.description = form.cleaned_data.get('description')
+            record.save()
 
             return redirect('home')

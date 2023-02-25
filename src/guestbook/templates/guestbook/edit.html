@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Create
+    Edit
 {% endblock %}
 
 {% block extra_css %}
@@ -12,8 +12,8 @@
 {% block content %}
     <div class="row gy-5 justify-content-center">
         <div class="col-12 col-sm-8">
-            <form action="{% url 'add_record' %}" method="POST">
-                {% include 'guestbook/partial/form.html' with button_text='Create' %}
+            <form action="{% url 'edit_record' pk %}" method="POST">
+                {% include 'guestbook/partial/form.html' with button_text='Edit' %}
             </form>
         </div>
     </div>
