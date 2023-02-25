@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <div class="left">
+            <h5 class="title">{{ record.author }}</h5>
+            <p class="email">{{ record.email }}</p>
+        </div>
+
+        <div class="buttons">
+            <a href="#" class="btn btn-warning" >
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+            <a href="#" class="btn btn-danger" >
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            {{ record.description }}
+        </p>
+        <div class="info d-flex justify-content-between">
+            <div class="created">Created: {{ record.created_at }}</div>
+            <div class="updated">Last Edit: {{ record.updated_at }}</div>
+        </div>
+    </div>
+</div>
