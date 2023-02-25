@@ -60,3 +60,10 @@ def edit_record(request, pk):
             record.save()
 
             return redirect('home')
+
+
+def delete_record(request, pk):
+    record = get_object_or_404(GuestBook, pk=pk)
+    record.delete()
+
+    return redirect('home')
