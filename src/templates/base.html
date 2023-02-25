@@ -22,11 +22,11 @@
     <header class="header" id="header">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container py-2">
-                <a class="navbar-brand" href="#">GuestBook</a>
+                <a class="navbar-brand" href="{% url 'home' %}">GuestBook</a>
 
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'add_record' %}">
                                 <i class="fa-solid fa-plus fa-2xl"></i>
                             </a>
                         </li>
