@@ -9,9 +9,31 @@
             <a href="{% url 'edit_record' record.pk %}" class="btn btn-warning">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
-            <a href="#" class="btn btn-danger">
+
+            <a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-record-{{ record.pk }}">
                 <i class="fa-solid fa-trash"></i>
             </a>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal-record-{{ record.pk }}" tabindex="-1"
+                 aria-labelledby="modal-record-{{ record.pk }}-label"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete {{ record.author }}'s record?</h1>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+                            <a href="{% url 'delete_record' record.pk %}" class="btn btn-danger">OK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="card-body">
