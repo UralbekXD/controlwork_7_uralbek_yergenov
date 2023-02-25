@@ -15,7 +15,7 @@ def search_record(request):
     query = request.GET.get('author')
     result = GuestBook.objects.filter(author__icontains=query)
 
-    return render(request, 'guestbook/index.html', context={
+    return render(request, 'guestbook/search.html', context={
         'records': result
     })
 

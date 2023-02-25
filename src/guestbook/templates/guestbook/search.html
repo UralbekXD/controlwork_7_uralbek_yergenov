@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <div class="row my-5 justify-content-center">
+        <div class="col-12 col-md-10">
+            <form action="{% url 'search_record' %}" method="GET">
+                {% include 'guestbook/partial/search.html' %}
+            </form>
+        </div>
+    </div>
+
+    <div class="row gy-5 justify-content-center">
+        {% if records %}
+            {% for record in records %}
+                <div class="col-12 col-sm-10">
+                    {% include 'guestbook/partial/card.html' %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12 col-sm-10 text-center">
+                <h2>No result found</h2>
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}
