@@ -5,6 +5,14 @@
 {% endblock %}
 
 {% block content %}
+    <div class="row my-5 justify-content-center">
+        <div class="col-12 col-md-10">
+            <form action="{% url 'search_record' %}" method="GET">
+                {% include 'guestbook/partial/search.html' %}
+            </form>
+        </div>
+    </div>
+
     <div class="row gy-5 justify-content-center">
         {% for record in records %}
             <div class="col-12 col-sm-10">

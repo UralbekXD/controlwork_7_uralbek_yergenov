@@ -11,6 +11,15 @@ def index(request):
     })
 
 
+def search_record(request):
+    query = request.GET.get('author')
+    result = GuestBook.objects.filter(author__icontains=query)
+
+    return render(request, 'guestbook/index.html', context={
+        'records': result
+    })
+
+
 def add_record(request):
     match request.method:
         case 'GET':
